@@ -45,6 +45,7 @@
                             <img src="{{ asset($blog->image) }}" alt="Blog Image" class="img-fluid">
                           </td>
                           <td>
+                            <td></td>
                            {{ $blog->action }}
                           </td>
                         </tr>
