@@ -39,14 +39,13 @@
                             {{$blog->title}}
                           </td>
                           <td>
-                            {{$blog->description}}
+                            {{$blog->desc}}
                           </td>
                           <td>
-                            <img src="{{ asset($blog->image) }}" alt="Blog Image" class="img-fluid">
+                            <img src="{{ asset($blog->img) }}" alt="Blog Image" class="img-fluid">
                           </td>
                           <td>
-                            <td></td>
-                           {{ $blog->action }}
+                           {{ $blog->Act }}
                           </td>
                         </tr>
                         @endforeach

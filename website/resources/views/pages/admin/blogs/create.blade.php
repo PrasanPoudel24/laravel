@@ -2,35 +2,27 @@
 @section('body')
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Default form</h4>
+                  <h4 class="card-title">Create blog</h4>
                   <p class="card-description">
                     Basic form layout
                   </p>
-                  <form class="forms-sample">
+                  <form class="forms-sample" action="{{ route('blogs.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="form-group">
-                      <label for="exampleInputUsername1">Username</label>
-                      <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Username">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                      <label for="exampleInputUsername1">Title</label>
+                      <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Title" name="title"> 
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputPassword1">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                      <label for="exampleInputEmail1">Description</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Description" name="description">
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputConfirmPassword1">Confirm Password</label>
-                      <input type="password" class="form-control" id="exampleInputConfirmPassword1" placeholder="Password">
+                      <label for="exampleInputEmail1">Image</label>
+                      <input type="file" class="form-control" id="exampleInputEmail1" placeholder="Image" name="images">
                     </div>
-                    <div class="form-check form-check-flat form-check-primary">
-                      <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input">
-                        Remember me
-                      </label>
-                    </div>
+                    
                     <button type="submit" class="btn btn-primary me-2">Submit</button>
-                    <button class="btn btn-light">Cancel</button>
+                    <button type="button" class="btn btn-light">Cancel</button>
                   </form>
                 </div>
               </div>

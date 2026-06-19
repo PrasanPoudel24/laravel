@@ -9,3 +9,8 @@ Route::get('/', function () {
 Route::get('/mainlayout', function () {
     return view('mainlayout.layout');
 });
+
+
+Route::get('/mainhome', function () {
+    return view('pages.mainhome');
+});

@@ -16,4 +16,25 @@ class BlogController extends Controller
     {
         return view('pages.admin.blogs.create');
     }
+    public function store(Request $request)
+    {
+       $request->validate([
+        'title' => 'required|string|max:255',
+        'description' => 'required|string|max:255',
+        'images' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+       ]);
+
+       $imagePath = null;
+       if($request->hasFile('images')) {
+        $imagePath = $request->file('images')->store('blog_images', 'public');
+       }
+
+       Blog::create([
+        'title' => $request->input('title'),
+        'desc' => $request->input('description'),
+        'img' => $imagePath,
+       ]);
+
+       return redirect()->route('blogs.index')->with('success', 'Blog created successfully.');
+    }
 }

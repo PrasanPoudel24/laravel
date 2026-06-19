@@ -35,6 +35,8 @@ Route::get('/blogs/index',[BlogController::class,'index'])->name('blogs.index');
 
 Route::get('/blogs/create',[BlogController::class,'create'])->name('blogs.create');
 
+Route::post('/blogs/store',[BlogController::class,'store'])->name('blogs.store');
+
 Route::get('/blogmain',[WebpageController::class,'blogs']);
 Route::get('/home',[WebpageController::class,'home'])->name('home');
 
