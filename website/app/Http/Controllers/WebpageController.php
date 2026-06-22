@@ -3,106 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Service;
 
 class WebpageController extends Controller
 {
     public function blogs(){
-        $sample=[
-            [
-                'id'=>1,
-                'name'=> 'test1',
-                'des'=>'Hello this is test 1',
-                'img'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHRAzEs1J77CUEubmHA7jLxSRLZGzjFY6Iaw&s'
-            ],
-             [
-                'id'=>2,
-                'name'=> 'test2',
-                'des'=>'Hello this is test 2',
-                'img'=>'https://i.pinimg.com/564x/dc/60/48/dc604813612e35ebe561ea6f3e0bdd60.jpg'
-            ],
+        $services = Service::all();
 
-        ];
-        $data=[
-            [
-                'id'=>1,
-                'name'=> 'Education',
-                'des'=>'Education is the key',
-                'img'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHRAzEs1J77CUEubmHA7jLxSRLZGzjFY6Iaw&s'
-            ],
-             [
-                'id'=>2,
-                'name'=> 'Australia',
-                'des'=>'Australia',
-                'img'=>'https://i.pinimg.com/564x/dc/60/48/dc604813612e35ebe561ea6f3e0bdd60.jpg'
-            ],
-
-        ];
-
-    return view ('pages.blogmain',compact('sample','data'));
+        return view('pages.blogmain', compact('services'));
     }
+
     public function contacts(){
-        $product=[
-            [
-                'id'=>1,
-                'name'=> 'America',
-                'des'=>'Education is the key',
-                'img'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHRAzEs1J77CUEubmHA7jLxSRLZGzjFY6Iaw&s'
-            ],
-             [
-                'id'=>2,
-                'name'=> 'Australia',
-                'des'=>'Australia',
-                'img'=>'https://i.pinimg.com/564x/dc/60/48/dc604813612e35ebe561ea6f3e0bdd60.jpg'
-            ],
+       $services = Service::all();
 
-        ];
-
-        return view('pages.contact',compact('product'));
+        return view('pages.contact',compact('services'));
     }
-    public function blogdetail($id){
-        $sample=[
-            [
-                'id'=>1,
-                'name'=> 'test1',
-                'des'=>'Hello this is test 1',
-                'img'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHRAzEs1J77CUEubmHA7jLxSRLZGzjFY6Iaw&s'
-            ],
-             [
-                'id'=>2,
-                'name'=> 'test2',
-                'des'=>'Hello this is test 2',
-                'img'=>'https://i.pinimg.com/564x/dc/60/48/dc604813612e35ebe561ea6f3e0bdd60.jpg'
-            ],
-
-        ];
-        
-        $service=null;
-        foreach($sample as $item)
-            if($item['id']==$id){
-                $service=$item;
-                break;
-            }
-        if(!$service){
-            abort(404);
-        }
-        return view('pages.blogdetail',compact('service'));
+    public function blogdetail(Service $service){
+        return view('pages.blogdetail', compact('service'));
     }
-     public function home(){
-        $product=[
-            [
-                'id'=>1,
-                'name'=> 'America',
-                'des'=>'Education is the key',
-                'img'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHRAzEs1J77CUEubmHA7jLxSRLZGzjFY6Iaw&s'
-            ],
-             [
-                'id'=>2,
-                'name'=> 'Australia',
-                'des'=>'Australia',
-                'img'=>'https://i.pinimg.com/564x/dc/60/48/dc604813612e35ebe561ea6f3e0bdd60.jpg'
-            ],
 
-        ];
+    public function home(){
+      $services = Service::all();
           $sample=[
             [
                 'id'=>1,
@@ -157,7 +78,7 @@ class WebpageController extends Controller
 
         ];
 
-    return view ('pages.home',compact('product','sample','branddata','immidata','brandcountry'));
+    return view ('pages.home',compact('sample','branddata','immidata','brandcountry','services'));
     }
     
 }

@@ -37,11 +37,12 @@ Route::get('/blogs/create',[BlogController::class,'create'])->name('blogs.create
 
 Route::post('/blogs/store',[BlogController::class,'store'])->name('blogs.store');
 
-Route::get('/blogmain',[WebpageController::class,'blogs']);
-Route::get('/home',[WebpageController::class,'home'])->name('home');
-
-Route::get('/blogdetail/{id}',[WebpageController::class,'blogdetail'])->name('blogdetail');
-
-Route::get('/about',[WebpageController::class,'about'])->name('about');
+Route::get('/blogmain', [WebpageController::class, 'blogs'])->name('blogmain');
+Route::get('/home', [WebpageController::class, 'home'])->name('home');
+Route::get('/blogdetail/{service}', [WebpageController::class, 'blogdetail'])->name('blogdetail');
+Route::get('/about', [WebpageController::class, 'about'])->name('about');
 
 require __DIR__.'/auth.php';
+
+
+

@@ -1,4 +1,4 @@
-@props(['data'])
+@props(['services'])
 
 <!-- SERVICES-4
 			============================================= -->
@@ -6,8 +6,8 @@
 				<div class="container">
 					<div class="row">
 
-					@foreach($data as $d)
-						<x-service.servicescard  :d="$d"/>
+					@foreach($services as $service)
+						<x-service.servicescard  :service="$service"/>
 					@endforeach
 
 					</div>    <!-- End row -->

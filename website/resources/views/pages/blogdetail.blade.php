@@ -14,16 +14,13 @@
 
 									<!-- Image -->
 									<div class="about-9-img mb-40">
-										<img class="img-fluid" src="{{$service['img']}}" alt="about-image" />
-									</div>
+							<img class="img-fluid" src="{{ $service->img }}" alt="about-image" />
 
 									<!-- Title -->
-									<h3 class="h3-md">{{$service['name']}}</h3>
+									<h3 class="h3-md">{{ $service->name }}</h3>
 
 									<!-- Text -->
-									<p>{{$service['des']}}
-									</p>
-
+						<p>{{ $service->description }}</p>
 									<!-- List -->
 									<ul class="txt-list">
 												

@@ -4,5 +4,5 @@
 <x-contact.map/>
 <x-contact.form/>
 <x-contact.call/>
-<x-service.service :data='$product'/>	
+<x-service.service :services="$services"/>	
 @endsection

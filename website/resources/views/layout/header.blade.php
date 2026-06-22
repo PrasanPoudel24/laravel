@@ -57,7 +57,7 @@
 
 
 						          	<!-- PAGES -->
-						          	<li aria-haspopup="true"><a href="{{ url('blogmain') }}">Blog <span class="wsarrow"></span></a>
+						          	<li aria-haspopup="true"><a href="{{ route('blogmain') }}">Blog <span class="wsarrow"></span></a>
 	            						<div class="wsmegamenu clearfix">
 	             							<div class="container">
 	               								<div class="row">
@@ -99,7 +99,7 @@
 
 						          
 						          	<!-- MEGAMENU -->
-									<li aria-haspopup="true"><a href="{{url('blogdetail') }}">Mega Menu <span class="wsarrow"></span></a>
+<li aria-haspopup="true"><a href="#">Mega Menu <span class="wsarrow"></span></a>
 	            						<div class="wsmegamenu clearfix">
 	             							<div class="container">
 	               								<div class="row">
