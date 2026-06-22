@@ -1,6 +1,60 @@
 @extends('adminlayout.adminlayout')
 @section('body')
 
+<style>
+    .btn-delete, .btn-edit {
+        padding: 8px 16px;
+        margin: 0 4px;
+        border: none;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn-delete {
+        background-color: #dc3545;
+        color: white;
+    }
+
+    .btn-delete:hover {
+        background-color: #c82333;
+        box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3);
+    }
+
+    .btn-edit {
+        background-color: #ffc107;
+        color: #333;
+    }
+
+    .btn-edit:hover {
+        background-color: #e0a800;
+        box-shadow: 0 4px 8px rgba(255, 193, 7, 0.3);
+    }
+</style>
+
+@if(session('success'))
+  <div class="alert alert-success">
+    {{ session('success') }}
+  </div>
+@endif
+@if(session('error'))
+  <div class="alert alert-danger">
+    {{ session('error') }}
+  </div>
+@endif
+@if ($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
   <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
@@ -45,7 +99,9 @@
                             <img src="{{ asset($blog->img) }}" alt="Blog Image" class="img-fluid">
                           </td>
                           <td>
-                           {{ $blog->Act }}
+                          <a href="{{ route('blogs.view', $blog->id) }}" class="btn btn-primary">View</a>
+                          <button class="btn-delete">Delete</button>
+                          <button class="btn-edit">Edit</button>
                           </td>
                         </tr>
                         @endforeach

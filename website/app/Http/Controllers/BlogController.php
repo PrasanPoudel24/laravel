@@ -37,4 +37,14 @@ class BlogController extends Controller
 
        return redirect()->route('blogs.index')->with('success', 'Blog created successfully.');
     }
+    public function view($id)
+    {
+        $blog = Blog::findOrFail($id);
+        return view('pages.admin.blogs.view', compact('blog'));
+    }
+    public function edit($id)
+    {
+        $blog = Blog::findOrFail($id);
+        return view('pages.admin.blogs.edit', compact('blog'));
+    }
 }

@@ -32,6 +32,8 @@ Route::get('/admin1', function () {
 });
 
 Route::get('/blogs/index',[BlogController::class,'index'])->name('blogs.index');
+Route::get('/blogs/view/{id}',[BlogController::class,'view'])->name('blogs.view');
+Route::get('/blogs/edit/{id}',[BlogController::class,'edit'])->name('blogs.edit');
 
 Route::get('/blogs/create',[BlogController::class,'create'])->name('blogs.create');
 
