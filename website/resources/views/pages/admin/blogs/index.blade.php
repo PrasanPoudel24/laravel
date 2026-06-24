@@ -96,12 +96,13 @@
                             {{$blog->desc}}
                           </td>
                           <td>
-                            <img src="{{ asset($blog->img) }}" alt="Blog Image" class="img-fluid">
+                            <img src="{{ asset('storage/' . $blog->img
+                            ) }}" alt="Blog Image" class="img-fluid">
                           </td>
                           <td>
                           <a href="{{ route('blogs.view', $blog->id) }}" class="btn btn-primary">View</a>
                           <button class="btn-delete">Delete</button>
-                          <button class="btn-edit">Edit</button>
+                          <a href="{{ route('blogs.edit', $blog->id) }}" class="btn btn-warning">Edit</a>
                           </td>
                         </tr>
                         @endforeach

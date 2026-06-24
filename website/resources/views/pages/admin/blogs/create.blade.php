@@ -29,20 +29,20 @@
                     @csrf
                     <div class="form-group">
                       <label for="exampleInputUsername1">Title</label>
-                      <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Title" name="title"> 
+                      <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Title" name="title" value="{{old('title')}}"> 
                     </div>
                     <div class="form-group">
                       <label for="exampleInputEmail1">Description</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Description" name="description">
+                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Description" name="description" value="{{old('description')}}">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputEmail1">Image</label>
-                      <input type="file" class="form-control" id="exampleInputEmail1" placeholder="Image" name="images" enctype="multipart/form-data">
+                      <input type="file" class="form-control" id="exampleInputEmail1" placeholder="Image" name="images" enctype="multipart/form-data" value="{{old('images')}}">
                     </div>
                     
                     <button type="submit" class="btn btn-primary me-2">Submit</button>
                     <button type="button" class="btn btn-light">Cancel</button>
-                  </form>
+                  </form> 
                 </div>
               </div>
             </div>
