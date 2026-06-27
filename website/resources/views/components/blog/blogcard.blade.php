@@ -6,7 +6,7 @@
 			 			
 							 			<!-- BLOG POST IMAGE -->
 							 			<div class="blog-post-img mb-30">
-										<img class="img-fluid" src="{{ $service->img }}" alt="blog-post-image" />	
+										<img class="img-fluid" src="{{ asset('storage/' . $service->img) }}" alt="blog-post-image" />	
 									</div>
 
 									

@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WebpageController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\StudentController;
+
 
 
 Route::get('/', function () {
@@ -36,9 +39,17 @@ Route::get('/blogs/view/{id}',[BlogController::class,'view'])->name('blogs.view'
 Route::get('/blogs/edit/{id}',[BlogController::class,'edit'])->name('blogs.edit');
 
 Route::post('/blogs/update/{id}',[BlogController::class,'update'])->name('blogs.update');
+Route::delete('/blogs/destroy/{id}',[BlogController::class,'destroy'])->name('blogs.destroy');
 
+Route::get('/test/index',[StudentController::class,'index'])->name('test.index');
+Route::get('/test/view/{id}',[StudentController::class,'view'])->name('test.view');
+Route::get('/test/edit/{id}',[StudentController::class,'edit'])->name('test.edit');
+
+Route::post('/test/update/{id}',[StudentController::class,'update'])->name('test.update');
+Route::delete('/test/destroy/{id}',[StudentController::class,'destroy'])->name('test.destroy');
+Route::get('/test/create',[StudentController::class,'create'])->name('test.create');
 Route::get('/blogs/create',[BlogController::class,'create'])->name('blogs.create');
-
+Route::post('/test/store',[StudentController::class,'store'])->name('test.store');
 Route::post('/blogs/store',[BlogController::class,'store'])->name('blogs.store');
 
 Route::get('/blogmain', [WebpageController::class, 'blogs'])->name('blogmain');
@@ -46,6 +57,12 @@ Route::get('/home', [WebpageController::class, 'home'])->name('home');
 Route::get('/blogdetail/{service}', [WebpageController::class, 'blogdetail'])->name('blogdetail');
 Route::get('/about', [WebpageController::class, 'about'])->name('about');
 
+
+
+
+Route::get('/banner/index',[BannerController::class,'index'])->name('banner.index');
+Route::get('/banner/create',[BannerController::class,'create'])->name('banner.create');
+Route::post('/banner/store',[StudentController::class,'store'])->name('banner.store');
 require __DIR__.'/auth.php';
 
 

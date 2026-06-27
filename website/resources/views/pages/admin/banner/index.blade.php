@@ -73,10 +73,19 @@
                            Title
                           </th>
                           <th>
+                           sub title
+                          </th>
+                          <th>
                            Description
                           </th>
                           <th>
                             Images
+                          </th>
+                          <th>
+                            Button link
+                          </th>
+                          <th>
+                            link
                           </th>
                           <th>
                             Action
@@ -84,29 +93,38 @@
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach($blogs as $blog)
+                        @foreach($banner as $banner)
                         <tr>
                           <td>
-                            {{$blog->id}}
+                            {{$banner->id}}
                           </td>
                           <td>
-                            {{$blog->title}}
+                            {{$banner->title}}
                           </td>
                           <td>
-                            {{$blog->desc}}
+                            {{$banner->subtitle}}
                           </td>
                           <td>
-                            <img src="{{ asset('storage/' . $blog->img
+                            {{$banner->description}}
+                          </td>
+                          <td>
+                            <img src="{{ asset('storage/' . $banner->img
                             ) }}" alt="Blog Image" class="img-fluid">
                           </td>
                           <td>
-                          <a href="{{ route('blogs.view', $blog->id) }}" class="btn btn-primary">View</a>
-                          <form action="{{ route('blogs.destroy', $blog->id) }}" method="POST" style="display: inline;">
+                            <td>
+                            {{$banner->buttonlink}}
+                          </td>
+                          <td>
+                            {{$banner->link}}
+                          </td>
+                          <a href="{{ route('banners.view', $blog->id) }}" class="btn btn-primary">View</a>
+                          <form action="{{ route('banner.destroy', $banner->id) }}" method="POST" style="display: inline;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this blog?')">Delete</button>
                           </form>
-                          <a href="{{ route('blogs.edit', $blog->id) }}" class="btn btn-warning">Edit</a>
+                          <a href="{{ route('banner.edit', $banner->id) }}" class="btn btn-warning">Edit</a>
                           </td>
                         </tr>
                         @endforeach

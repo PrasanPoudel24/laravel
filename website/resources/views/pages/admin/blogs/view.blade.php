@@ -45,7 +45,7 @@
     <div class="blog-title">{{ $blog->title }}</div>
     <div class="blog-description">{{ $blog->desc }}</div>
     <div class="blog-image-wrapper">
-        <img src="{{ asset($blog->img) }}" alt="Blog Image" class="img-fluid">
+        <img src="{{ asset('storage/' . $blog->img) }}" alt="Blog Image" class="img-fluid">
     </div>
 </div>
 @endsection

@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Service;
+use app\Auth\Blogcontroller;
+use App\Models\Blog;
 
 class WebpageController extends Controller
 {
     public function blogs(){
-        $services = Service::all();
-
-        return view('pages.blogmain', compact('services'));
+        $blog = Blog::all();
+    
+        return view('pages.blogmain', compact('blog'));
     }
 
     public function contacts(){
