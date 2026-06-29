@@ -37,19 +37,19 @@
                     </div>
                     <div class="form-group">
                       <label for="exampleInputEmail1">Image</label>
-                      <input type="file" class="form-control" id="exampleInputEmail1" placeholder="Image" name="images" enctype="multipart/form-data" value="{{old('images')}}">
+                      <input type="file" class="form-control" id="exampleInputEmail1" placeholder="Image" name="image" enctype="multipart/form-data" value="{{old('images')}}">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputEmail1">Subtitle</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Description" name="description" value="{{old('description')}}">
+                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Description" name="subtitle" value="{{old('description')}}">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputEmail1">buttenlink</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Description" name="description" value="{{old('description')}}">
+                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Description" name="buttonlink" value="{{old('description')}}">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputEmail1">link</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Description" name="description" value="{{old('description')}}">
+                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Description" name="link" value="{{old('description')}}">
                     </div>
                     
                     

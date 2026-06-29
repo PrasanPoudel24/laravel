@@ -16,7 +16,7 @@
     }
 
     .btn-delete {
-        background-color: #dc3545;
+        background-color: #f62f43;
         color: white;
     }
 
@@ -36,25 +36,6 @@
     }
 </style>
 
-@if(session('success'))
-  <div class="alert alert-success">
-    {{ session('success') }}
-  </div>
-@endif
-@if(session('error'))
-  <div class="alert alert-danger">
-    {{ session('error') }}
-  </div>
-@endif
-@if ($errors->any())
-  <div class="alert alert-danger">
-    <ul>
-      @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-      @endforeach
-    </ul>
-  </div>
-@endif
   <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
@@ -108,8 +89,7 @@
                             {{$banner->description}}
                           </td>
                           <td>
-                            <img src="{{ asset('storage/' . $banner->img
-                            ) }}" alt="Blog Image" class="img-fluid">
+                            <img src="{{ asset('storage/' . $banner->img)}}" alt="Blog Image" class="img-fluid">
                           </td>
                           <td>
                             <td>
@@ -118,8 +98,9 @@
                           <td>
                             {{$banner->link}}
                           </td>
-                          <a href="{{ route('banners.view', $blog->id) }}" class="btn btn-primary">View</a>
-                          <form action="{{ route('banner.destroy', $banner->id) }}" method="POST" style="display: inline;">
+                          <td>
+                          <a href="" class="btn btn-primary">View</a>
+                          <form action="" method="POST" style="display: inline;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this blog?')">Delete</button>

@@ -62,7 +62,8 @@ Route::get('/about', [WebpageController::class, 'about'])->name('about');
 
 Route::get('/banner/index',[BannerController::class,'index'])->name('banner.index');
 Route::get('/banner/create',[BannerController::class,'create'])->name('banner.create');
-Route::post('/banner/store',[StudentController::class,'store'])->name('banner.store');
+Route::post('/banner/store',[BannerController::class,'store'])->name('banner.store');
+Route::get('/banner/edit/{id}',[BannerController::class,'edit'])->name('banner.edit');
 require __DIR__.'/auth.php';
 
 
