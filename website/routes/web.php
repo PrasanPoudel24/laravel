@@ -22,19 +22,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/contact', [WebpageController::class,'contacts'])->name('contacts');
-});
-
-
-Route::get('/layout', function () {
-    return view('layout.layout');
-});
-
-
-Route::get('/admin1', function () {
-    return view('adminlayout.adminlayout');
-});
-
-Route::get('/blogs/index',[BlogController::class,'index'])->name('blogs.index');
+    Route::get('/blogs/index',[BlogController::class,'index'])->name('blogs.index');
 Route::get('/blogs/view/{id}',[BlogController::class,'view'])->name('blogs.view');
 Route::get('/blogs/edit/{id}',[BlogController::class,'edit'])->name('blogs.edit');
 
@@ -52,7 +40,7 @@ Route::get('/blogs/create',[BlogController::class,'create'])->name('blogs.create
 Route::post('/test/store',[StudentController::class,'store'])->name('test.store');
 Route::post('/blogs/store',[BlogController::class,'store'])->name('blogs.store');
 
-Route::get('/blogmain', [WebpageController::class, 'blogs'])->name('blogmain');
+
 Route::get('/home', [WebpageController::class, 'home'])->name('home');
 Route::get('/blogdetail/{service}', [WebpageController::class, 'blogdetail'])->name('blogdetail');
 Route::get('/about', [WebpageController::class, 'about'])->name('about');
@@ -64,6 +52,22 @@ Route::get('/banner/index',[BannerController::class,'index'])->name('banner.inde
 Route::get('/banner/create',[BannerController::class,'create'])->name('banner.create');
 Route::post('/banner/store',[BannerController::class,'store'])->name('banner.store');
 Route::get('/banner/edit/{id}',[BannerController::class,'edit'])->name('banner.edit');
+Route::post('/banner/update/{id}',[BannerController::class,'update'])->name('banner.update');
+Route::get('/banner/destroy/{id}',[BannerController::class,'destroy'])->name('banner.destroy');
+});
+
+
+Route::get('/layout', function () {
+    return view('layout.layout');
+});
+
+
+Route::get('/admin1', function () {
+    return view('adminlayout.adminlayout');
+});
+
+Route::get('/blogmain', [WebpageController::class, 'blogs'])->name('blogmain');
+
 require __DIR__.'/auth.php';
 
 

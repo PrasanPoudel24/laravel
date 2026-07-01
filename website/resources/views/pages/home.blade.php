@@ -2,8 +2,8 @@
 
 @section('body')
 
-<x-banner.banner/>	
-<x-blog.blog :services="$services"/>
+<x-banner.banner :apple="$banner" />
+<x-blog.blog :blog="$services"/>
 <x-About.About :sample='$sample'/>
 <x-statistic.statistic/>
 <x-immi.immi :immidata='$immidata'/>

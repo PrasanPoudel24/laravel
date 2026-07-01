@@ -40,8 +40,8 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Bordered table</h4>
-                  <p class="card-description">
-                    Add class <code>.table-bordered</code>
+                  <p class="card-description"><a href="{{route('banner.create')}}"  class="btn btn-warning">Create</a>
+                    
                   </p>
                   <div class="table-responsive pt-3">
                     <table class="table table-bordered">
@@ -89,7 +89,7 @@
                             {{$banner->description}}
                           </td>
                           <td>
-                            <img src="{{ asset('storage/' . $banner->img)}}" alt="Blog Image" class="img-fluid">
+                            <img src="{{ asset('storage/' . $banner->img)}}" alt="banner Image" class="img-fluid">
                           </td>
                           <td>
                             <td>
@@ -100,11 +100,7 @@
                           </td>
                           <td>
                           <a href="" class="btn btn-primary">View</a>
-                          <form action="" method="POST" style="display: inline;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this blog?')">Delete</button>
-                          </form>
+                         <a href="{{ route('banner.destroy', $banner->id) }}" class="btn btn-warning">Delete</a>
                           <a href="{{ route('banner.edit', $banner->id) }}" class="btn btn-warning">Edit</a>
                           </td>
                         </tr>

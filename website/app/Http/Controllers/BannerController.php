@@ -45,4 +45,37 @@ class BannerController extends Controller
         $banner=Banner::findOrFail($id);
         return view('pages.admin.banner.edit', compact('banner'));
     }
+    public function update(Request $request,$id)
+    {
+        $banner=Banner::findOrFail($id);
+        
+        $request->validate([
+        'title' => 'required|string|max:255',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'subtitle'=>'required|string|max:255',
+        'description'=>'required|string|max:255',
+        'buttonlink'=>'required|string|max:255',
+        'link'=>'required|string|max:255',
+        ]);
+
+        if($request->hasFile('images')) {
+        $imagePath = $request->file('images')->store('banner_images');
+        $banner->update(['image' => $imagePath]); // Update the image path in the database
+       }
+       $banner->update([
+        'title' => $request->input('title'),
+        'description' => $request->input('description'),
+        'subtitle'=>$request->input('subtitle'),
+        'buttonlink'=>$request->input('buttonlink'),
+        'link'=>$request->input('link'),
+       ]);
+       return redirect()->route('banner.index')->with('success', 'Banner created successfully.');
+    }
+     public function destroy($id)
+    {
+        $banner = Banner::findOrFail($id);
+        $banner->delete();
+        return redirect()->route('banner.index')->with('success', 'banner deleted successfully.');
+    }
+
 }

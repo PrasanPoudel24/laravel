@@ -1,4 +1,4 @@
-
+@props(['apple']);
 <!-- HERO-1
 			============================================= -->	
 			<section id="hero-1" class="hero-section division">
@@ -8,10 +8,9 @@
 				<div class="slider">
 			    	<ul class="slides">
 
-                <x-banner.bannercard/>
-    
-                <x-banner.bannercard/>
-
+                @foreach ($apple as $app)
+    			<x-banner.bannercard :app='$app' />
+				@endforeach
 
 
 				    </ul>

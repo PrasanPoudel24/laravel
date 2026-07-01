@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Service;
 use app\Auth\Blogcontroller;
 use App\Models\Blog;
+use App\Models\Banner;
+use app\Auth\Bannercontroller;
+
 
 class WebpageController extends Controller
 {
@@ -79,8 +82,10 @@ class WebpageController extends Controller
             ],
 
         ];
+        $banner=Banner::all();
+        
 
-    return view ('pages.home',compact('sample','branddata','immidata','brandcountry','services'));
+    return view ('pages.home',compact('sample','branddata','immidata','brandcountry','services','banner'));
     }
     
 }
