@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WebpageController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StudentController;
 
 
@@ -67,7 +70,10 @@ Route::get('/admin1', function () {
 });
 
 Route::get('/blogmain', [WebpageController::class, 'blogs'])->name('blogmain');
+Route::resource('/category',CategoryController::class);
 
+Route::resource('/product',ProductController::class);
+Route::resource('/animal',AnimalController::class);
 require __DIR__.'/auth.php';
 
 

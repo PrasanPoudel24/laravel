@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\category;
+use App\Models\animal;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class AnimalController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $category=Category::all();
-        return view('pages.admin.category.index',compact('category'));
+        //
     }
 
     /**
@@ -21,7 +20,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.category.create');
+        //
     }
 
     /**
@@ -35,7 +34,7 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(category $category)
+    public function show(animal $animal)
     {
         //
     }
@@ -43,7 +42,7 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(category $category)
+    public function edit(animal $animal)
     {
         //
     }
@@ -51,7 +50,7 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, category $category)
+    public function update(Request $request, animal $animal)
     {
         //
     }
@@ -59,7 +58,7 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(category $category)
+    public function destroy(animal $animal)
     {
         //
     }
