@@ -67,7 +67,11 @@
                           
                           <td>
                           <a href="" class="btn btn-primary">View</a>
-                         <a href="{{ route('category.destroy', $category->id) }}" class="btn btn-warning">Delete</a>
+                         <form action="{{ route('category.destroy', $category->id) }}" method="POST" style="display: inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this blog?')">Delete</button>
+                          </form>
                           <a href="{{ route('category.edit', $category->id) }}" class="btn btn-warning">Edit</a>
                           </td>
                         </tr>

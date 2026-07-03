@@ -29,7 +29,17 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+       $request->validate([
+        'name' => 'required|string|max:255',
+       
+       ]);
+
+       category::create([
+        'name' => $request->input('name'),
+       ]);
+
+       return redirect()->route('category.index')->with('success', 'category created successfully.');
     }
 
     /**
@@ -44,8 +54,10 @@ class CategoryController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(category $category)
-    {
-        //
+    {   
+        
+        //$category=Category::findOrFail($category) resource use so no need to write this
+        return view('pages.admin.category.edit',compact('category'));
     }
 
     /**
@@ -53,7 +65,19 @@ class CategoryController extends Controller
      */
     public function update(Request $request, category $category)
     {
-        //
+        
+        $request->validate([
+        'name' => 'required|string|max:255',
+        
+       ]);
+
+
+       $category->update([
+        'name' => $request->input('name'),
+        
+       ]);
+
+        return redirect()->route('category.index')->with('success', 'category updated successfully.');
     }
 
     /**
@@ -61,6 +85,8 @@ class CategoryController extends Controller
      */
     public function destroy(category $category)
     {
-        //
+        //$category = Category::findOrFail($id);
+        $category->delete();
+        return redirect()->route('category.index')->with('success', 'category deleted successfully.');
     }
 }
