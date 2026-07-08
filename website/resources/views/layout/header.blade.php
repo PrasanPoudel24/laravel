@@ -1,3 +1,4 @@
+
 <!-- HEADER
 			============================================= -->
 			<header id="header-2" class="header white-menu">
@@ -19,15 +20,15 @@
 				    		<!-- Infotmation -->
 				     		<div class="headertopleft">			     			
 				        		<div class="header-info clearfix">
-				        			<span class="txt-400"><i class="fas fa-map-marker-alt"></i>121 King St, Melbourne, Victoria 3000</span> 
+				        			<span class="txt-400"><i class="fas fa-map-marker-alt"></i>{{$contact['address']}}</span> 
 				            	</div>
 				     		</div>
 
 				     		<!-- Contacts -->
 						    <div class="headertopright header-contacts">						    	
-						    	<a href="tel:123456789" class="callusbtn txt-400"><i class="fas fa-phone"></i>+61-2 3456 7890,</a>
-						    	<a href="tel:123456789" class="callusbtn b-right txt-400">&#8194;+61-2 7890 3456</a>
-						    	<a href="mailto:yourdomain@mail.com" class="txt-400"><i class="far fa-envelope-open"></i>hello@domain.com</a>
+						    	<a href="tel:123456789" class="callusbtn txt-400"><i class="fas fa-phone"></i>{{$contact['phone1']}},</a>
+						    	<a href="tel:123456789" class="callusbtn b-right txt-400">&#8194;{{$contact['phone2']}}</a>
+						    	<a href="mailto:yourdomain@mail.com" class="txt-400"><i class="far fa-envelope-open"></i>{{$contact['email']}}</a>
 					      	</div>
 
 					    </div>

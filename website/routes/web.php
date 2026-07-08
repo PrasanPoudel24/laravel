@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WebpageController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StudentController;
 
@@ -24,7 +25,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/contact', [WebpageController::class,'contacts'])->name('contacts');
+    
     Route::get('/blogs/index',[BlogController::class,'index'])->name('blogs.index');
 Route::get('/blogs/view/{id}',[BlogController::class,'view'])->name('blogs.view');
 Route::get('/blogs/edit/{id}',[BlogController::class,'edit'])->name('blogs.edit');
@@ -71,9 +72,11 @@ Route::get('/admin1', function () {
 
 Route::get('/blogmain', [WebpageController::class, 'blogs'])->name('blogmain');
 Route::resource('/category',CategoryController::class);
-
+Route::get('/contacts', [WebpageController::class,'contacts'])->name('contacts');
 Route::resource('/product',ProductController::class);
 Route::resource('/animal',AnimalController::class);
+Route::resource('/contact',ContactController::class);
+
 require __DIR__.'/auth.php';
 
 

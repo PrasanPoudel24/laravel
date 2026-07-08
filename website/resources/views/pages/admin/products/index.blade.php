@@ -16,7 +16,7 @@
     }
 
     .btn-delete {
-        background-color: #f62f43;
+        background-color: #dc3545;
         color: white;
     }
 
@@ -36,12 +36,31 @@
     }
 </style>
 
+@if(session('success'))
+  <div class="alert alert-success">
+    {{ session('success') }}
+  </div>
+@endif
+@if(session('error'))
+  <div class="alert alert-danger">
+    {{ session('error') }}
+  </div>
+@endif
+@if ($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
   <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Category table</h4>
-                  <p class="card-description"><a href="{{route('category.create')}}"  class="btn btn-warning">Create</a>
-                    
+                  <h4 class="card-title">Products table</h4>
+                  <p class="card-description">
+                    Add class <code>.table-bordered</code>
                   </p>
                   <div class="table-responsive pt-3">
                     <table class="table table-bordered">
@@ -51,28 +70,37 @@
                             ID
                           </th>
                           <th>
-                           name
+                           category
+                          </th>
+                          <th>
+                           Name
+                          </th>
+                          <th>
+                            Images
+                          </th>
+                          <th>
+                            Action
                           </th>
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach($category as $category)
+                        @foreach($products as $Product)
                         <tr>
                           <td>
-                            {{$category->id}}
+                            {{$Product->id}}
                           </td>
                           <td>
-                            {{$category->name}}
+                            {{$Product->category_id}}
                           </td>
-                          
                           <td>
-                          <a href="{{ route('category.show', $category->id) }}" class="btn btn-primary">Show</a>
-                         <form action="{{ route('category.destroy', $category->id) }}" method="POST" style="display: inline;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this blog?')">Delete</button>
-                          </form>
-                          <a href="{{ route('category.edit', $category->id) }}" class="btn btn-warning">Edit</a>
+                            {{$Product->name}}
+                          </td>
+                          <td>
+                            {{$Product->image}}
+                          </td>
+                          <td>
+                            <img src="{{ asset('storage/' . $Product->img
+                            ) }}" alt="Blog Image" class="img-fluid">
                           </td>
                         </tr>
                         @endforeach

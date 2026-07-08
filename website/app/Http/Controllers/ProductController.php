@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\category;
 use Illuminate\Http\Request;
+use App\Http\Controllers\CategoryController;
 
 class ProductController extends Controller
 {
@@ -12,7 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products= Product::with('category')->get();
+        return view('pages.admin.products.index',compact('products'));
     }
 
     /**
@@ -20,15 +23,30 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $category=Category::all();
+        return view('pages.admin.products.create',compact("category"));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+   public function store(Request $request)
     {
-        //
+         $request->validate([
+            'name'=> 'required|string|max:255',
+            'image' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
+            'category_id'=> 'required|string'
+        ]);
+        $imagePath =null;
+        if($request->hasFile('image')){
+            $imagePath=$request ->file('image')->store('blog_images','public');
+        }
+        Product::create([
+            'name' => $request->input('name'),
+            'image' => $imagePath,
+            'category_id' => $request->input('category_id')
+        ]);
+        return redirect()->route('product.index')->with('success', 'Blog created successfully.');
     }
 
     /**

@@ -16,6 +16,7 @@ class CategoryController extends Controller
         return view('pages.admin.category.index',compact('category'));
     }
 
+
     /**
      * Show the form for creating a new resource.
      */
@@ -47,7 +48,9 @@ class CategoryController extends Controller
      */
     public function show(category $category)
     {
-        //
+        //$category=Category::with('products')->findOrFail($category);
+        $category->load('products');
+        @dd($category);
     }
 
     /**
